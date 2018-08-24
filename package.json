@@ -1,0 +1,17 @@
+{
+  "name": "yelpcamp",
+  "version": "1.0.0",
+  "description": "yelp camp web app with express and node and ejs ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch server.js"
+  },
+  "author": "md naim uddin",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.3"
+  }
+}
