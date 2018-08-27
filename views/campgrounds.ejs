@@ -1,0 +1,28 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="jumbotron" style="text-align: center">
+        <h1>All the listed Campgrounds</h1> 
+        <p>Some of the most beautiful campground in the world!</p>
+        <div>
+            <button type="button" class="btn btn-warning"><a href="/campgrounds/new">Add New Campgrounds +</a></button>    
+            <button type="button" class="btn btn-warning"><a href="/">Home Page</a></button>    
+        </div>
+    </div>
+    
+    <div class="row">
+        <% campgrounds.forEach(function(campground){ %>
+            <div class="col-md-6 col-lg-4">
+                <figure class="figure">
+                  <img src="<%= campground.image %>" class="img-thumbnail" >
+                  <figcaption class="figure-caption text-center"><%= campground.name %></figcaption>
+                </figure>
+            </div>
+        <% }) %>
+    </div>
+
+</div>
+
+
+
+<% include partials/footer %>  

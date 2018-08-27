@@ -10,8 +10,10 @@
   "author": "md naim uddin",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "mongoose": "^5.2.9",
     "nodemon": "^1.18.3"
   }
 }
