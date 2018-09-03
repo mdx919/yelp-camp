@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
 <div class="container">
-    <div class="jumbotron" style="text-align: center">
+    <div class="jumbotron" >
         <h1>All the listed Campgrounds</h1> 
         <p>Some of the most beautiful campground in the world!</p>
         <div>
@@ -10,19 +10,19 @@
         </div>
     </div>
     
-    <div class="row" style="display: flex; flex-wrap: wrap;">
+    <div class="row row-eq-height">
         <% campgrounds.forEach(function(campground){ %>
             <div class="col-md-3 col-sm-6">
-                <figure class="figure">
-                  <img src="<%= campground.image %>" class="img-thumbnail" >
-                  <figcaption class="figure-caption text-center"><%= campground.name %></figcaption>
-                </figure>
-                <p style="text-align: center">
-                    <button type="button" class="btn btn-warning">
-                        <a href="/index/<%= campground._id %>">More Info</a>
-                    </button>    
-                    
-                </p>
+                <div class="card-group">
+                    <div class="card">
+                        <img class="card-img-top img-responsive" src="<%= campground.image %>" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title"><%= campground.name %></h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="/index/<%= campground._id %>" class="btn btn-primary">More Info</a>
+                  </div>
+                </div>
+                </div>
             </div>
         <% }) %>
     </div>

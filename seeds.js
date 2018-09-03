@@ -18,6 +18,36 @@ var data = [
             image: "https://images.unsplash.com/photo-1525811902-f2342640856e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a7383ad093ffea99d373681b9974056&auto=format&fit=crop&w=500&q=60",
             description: "Proin pharetra nisi ac purus condimentum venenatis. Curabitur suscipit varius porttitor. Sed ligula ligula, hendrerit quis turpis vitae, pretium commodo sapien. Sed interdum sagittis mattis. Curabitur a mi tristique, condimentum quam non, ultricies lacus. Donec commodo volutpat blandit. In eget ligula quam. Sed egestas interdum hendrerit."
         },
+        {
+            name: "Fire Island",
+            image: "https://images.unsplash.com/photo-1525811902-f2342640856e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a7383ad093ffea99d373681b9974056&auto=format&fit=crop&w=500&q=60",
+            description: "Proin pharetra nisi ac purus condimentum venenatis. Curabitur suscipit varius porttitor. Sed ligula ligula, hendrerit quis turpis vitae, pretium commodo sapien. Sed interdum sagittis mattis. Curabitur a mi tristique, condimentum quam non, ultricies lacus. Donec commodo volutpat blandit. In eget ligula quam. Sed egestas interdum hendrerit."
+        },
+        {
+            name: "Starry Night",
+            image: "https://images.unsplash.com/photo-1530102900583-143a3be5d43f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be72236f0cb67315dceb05d2dfb94710&auto=format&fit=crop&w=500&q=60",
+            description: "Proin pharetra nisi ac purus condimentum venenatis. Curabitur suscipit varius porttitor. Sed ligula ligula, hendrerit quis turpis vitae, pretium commodo sapien. Sed interdum sagittis mattis. Curabitur a mi tristique, condimentum quam non, ultricies lacus. Donec commodo volutpat blandit. In eget ligula quam. Sed egestas interdum hendrerit."
+        },
+        {
+            name: "Fire Island",
+            image: "https://images.unsplash.com/photo-1525811902-f2342640856e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a7383ad093ffea99d373681b9974056&auto=format&fit=crop&w=500&q=60",
+            description: "Proin pharetra nisi ac purus condimentum venenatis. Curabitur suscipit varius porttitor. Sed ligula ligula, hendrerit quis turpis vitae, pretium commodo sapien. Sed interdum sagittis mattis. Curabitur a mi tristique, condimentum quam non, ultricies lacus. Donec commodo volutpat blandit. In eget ligula quam. Sed egestas interdum hendrerit."
+        },
+        {
+            name: "Starry Night",
+            image: "https://images.unsplash.com/photo-1530102900583-143a3be5d43f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be72236f0cb67315dceb05d2dfb94710&auto=format&fit=crop&w=500&q=60",
+            description: "Proin pharetra nisi ac purus condimentum venenatis. Curabitur suscipit varius porttitor. Sed ligula ligula, hendrerit quis turpis vitae, pretium commodo sapien. Sed interdum sagittis mattis. Curabitur a mi tristique, condimentum quam non, ultricies lacus. Donec commodo volutpat blandit. In eget ligula quam. Sed egestas interdum hendrerit."
+        },
+        {
+            name: "Fire Island",
+            image: "https://images.unsplash.com/photo-1525811902-f2342640856e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a7383ad093ffea99d373681b9974056&auto=format&fit=crop&w=500&q=60",
+            description: "Proin pharetra nisi ac purus condimentum venenatis. Curabitur suscipit varius porttitor. Sed ligula ligula, hendrerit quis turpis vitae, pretium commodo sapien. Sed interdum sagittis mattis. Curabitur a mi tristique, condimentum quam non, ultricies lacus. Donec commodo volutpat blandit. In eget ligula quam. Sed egestas interdum hendrerit."
+        },
+        {
+            name: "Starry Night",
+            image: "https://images.unsplash.com/photo-1530102900583-143a3be5d43f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be72236f0cb67315dceb05d2dfb94710&auto=format&fit=crop&w=500&q=60",
+            description: "Proin pharetra nisi ac purus condimentum venenatis. Curabitur suscipit varius porttitor. Sed ligula ligula, hendrerit quis turpis vitae, pretium commodo sapien. Sed interdum sagittis mattis. Curabitur a mi tristique, condimentum quam non, ultricies lacus. Donec commodo volutpat blandit. In eget ligula quam. Sed egestas interdum hendrerit."
+        },
     ]
 
 function seedDB(){

@@ -1,0 +1,20 @@
+.container {
+    margin-top: 60px;
+    margin-bottom: 10px
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+.card {
+    width: 100%;
+}
+
+.card-group {
+    padding-bottom: 5px;
+}
+
+#auth-form {
+    width: 50%;
+}

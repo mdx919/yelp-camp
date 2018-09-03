@@ -2,31 +2,37 @@ var express         = require("express"),
      app            = express(),
      bodyParser     = require("body-parser"),
      mongoose       = require("mongoose"),
+     passport       = require("passport"),
+     LocalStrategy  = require("passport-local"),
      Campground     = require("./models/campground"),
-     seedDB         = require("./seeds"),
-     Comment        = require("./models/comment")
+     Comment        = require("./models/comment"),
+     User           = require("./models/user"),
+     seedDB         = require("./seeds");
+     
 
 mongoose.connect("mongodb://localhost:27017/yelp_camp");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 seedDB();
 
+//PASSPORT CONFIGURATIONS
+app.use(require("express-session")({
+    secret: "Once again Rusty wins cutest dog",
+    resave: false,
+    saveUninitialized: false
+}))
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
-
-// Campground.create(
-//     {
-//         name: "Bear Mountain",
-//         image: "https://images.unsplash.com/photo-1519095614420-850b5671ac7f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ffaa8c9b9aca319b57204b5d620f56&auto=format&fit=crop&w=500&q=60",
-//         description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution",
-//     }, function(err, campground){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             console.log("Newly Created Campground:");
-//             console.log(campground)
-//         }
-//     });
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
+})
         
 // the routes
 app.get("/", function(req, res) {
@@ -39,7 +45,7 @@ app.get("/index", function(req, res) {
         if(err) {
             console.log(err);
         } else {
-            res.render("campgrounds/index", { campgrounds: allCampgrounds });
+            res.render("campgrounds/index", { campgrounds: allCampgrounds, currentUser: req.user });
         }
     })
 })
@@ -83,7 +89,7 @@ app.get("/index/:id", function(req, res) {
 //=======================
 //COMENTS ROUTES
 //=======================
-app.get("/index/:id/comments/new", function(req, res) {
+app.get("/index/:id/comments/new", isLoggeIn, function(req, res) {
     Campground.findById(req.params.id, function(err, campground){
         if(err){
             console.log(err)
@@ -93,7 +99,7 @@ app.get("/index/:id/comments/new", function(req, res) {
     })
 })
 
-app.post("/index/:id/comments", function(req, res){
+app.post("/index/:id/comments", isLoggeIn, function(req, res){
     Campground.findById(req.params.id, function(err, campground) {
         if(err){
             console.log(err)
@@ -112,7 +118,52 @@ app.post("/index/:id/comments", function(req, res){
     })
 })
 
+//AUTH ROUTES
+app.get("/register", function(req, res) {
+    res.render("register");
+})
 
+//handle sign up logic
+app.post("/register", function(req, res) {
+    var newUser = new User({ username: req.body.username });
+    User.register(newUser, req.body.password, function(err, user){
+        if(err){
+            console.log(err)
+            return res.render("register");
+        } else {
+            passport.authenticate("local")(req, res, function(){
+                res.redirect("/index")
+            })
+        }
+    })
+})
+
+// show login routes
+app.get("/login", function(req, res) {
+    res.render("login");
+})
+
+//handling login logic
+app.post("/login", passport.authenticate("local", 
+    {   
+        successRedirect: "/index",
+        failureRedirect: "/login"
+    }), function(req, res) {
+    
+});
+
+//logout logic
+app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/index")
+})
+
+function isLoggeIn(req, res, next) {
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login")
+}
 
 //dont mess them for no reason
 app.get("*", function(req, res){
